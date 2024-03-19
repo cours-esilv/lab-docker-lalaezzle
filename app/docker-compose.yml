@@ -1,0 +1,22 @@
+version: '3'
+services:
+  back:
+    image: stellala/back:back
+    ports:
+      - "5000:5000"
+    environment:
+      - CURRENT_ENVIRONMENT=development
+    volumes:
+      - back-data:/app/data
+    container_name: mon_docker_back
+
+  front:
+    image: stellala/front:front
+    ports:
+      - "8080:80"
+    environment:
+      - WS_BACK_URL=http://back:5000
+    container_name: mon_docker_front
+
+volumes:
+  back-data:
