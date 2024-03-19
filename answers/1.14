@@ -1,0 +1,4 @@
+docker stop 3a328e468d23
+docker rm 3a328e468d23
+docker rmi e25a643688a9
+
